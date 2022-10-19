@@ -29,8 +29,8 @@ jobs:
         SECRET_PWD: ${{secrets.PWD}}
       run: |
         pwd
-        echo "USERNAME=${SECRET_USR}" > ../../.env
-        echo "PWD=${SECRET_PWD}" >> ../../.env
+        echo "USERNAME=${SECRET_USR}" > .env
+        echo "PWD=${SECRET_PWD}" >> .env
     - name: Run your tests
       run: pytest
     
