@@ -20,6 +20,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest-playwright
         playwright install
+        pip install dotenv
     - name: Ensure browsers are installed
       run: python -m playwright install --with-deps
     - name: Setup .env variables
