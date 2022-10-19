@@ -10,10 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: setup env
-      env:
-        SECRET_USR: ${{secrets.USER_NAME}}
-        SECRET_PWD: ${{secrets.PWD}}
     - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -27,6 +23,9 @@ jobs:
     - name: Ensure browsers are installed
       run: python -m playwright install --with-deps
     - name: Setup .env variables
+      env:
+        SECRET_USR: ${{secrets.USER_NAME}}
+        SECRET_PWD: ${{secrets.PWD}}
       run: |
         pwd
         echo "USERNAME=$SECRET_USR" > ../../.env
