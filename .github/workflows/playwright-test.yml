@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: setup env
-    - shell: bash
       env:
         SECRET_USR: ${{secrets.USER_NAME}}
         SECRET_PWD: ${{secrets.PWD}}
