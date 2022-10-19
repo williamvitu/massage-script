@@ -1,10 +1,14 @@
 import re
-
+import os
 from playwright.sync_api import Page, expect
+from dotenv import load_dotenv
 
-
+load_dotenv()
 
 def test(page: Page):
+    
+    USR = os.getenv("USERNAME")
+    PWD = os.getenv("PWD")
     
     username = page.locator("id=Email")
     pwd = page.locator("id=Senha")
@@ -12,9 +16,9 @@ def test(page: Page):
 
     page.goto("https://aliviumterapia1.websiteseguro.com/app/")
     username.click()
-    username.fill("")
+    username.fill(USR)
     pwd.click()
-    pwd.fill("")
+    pwd.fill(PWD)
     loginButton.click()
     expect(page.locator("h2", has_text="AGENDAR"))
     page.locator("id=AgendaId").click()
